@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Landing Page</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <!-- Optional: Add link to an icon library like Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<style>
+    /* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4f4f4; 
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Softened shadow */
+    position: sticky; /* Optional: Make header sticky */
+    top: 0;
+    z-index: 1000; /* Ensure header stays on top */
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px; /* Increased gap */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+nav ul li a:hover {
+    color: #ff4081; /* Added hover color */
+}
+
+
+.icons span {
+    margin-left: 20px; /* Increased spacing */
+    cursor: pointer;
+    font-size: 18px; /* Slightly larger icons */
+    color: #555; /* Icon color */
+    transition: color 0.3s ease;
+}
+
+.icons span:hover {
+    color: #ff4081; /* Added hover color */
+}
+
+
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ff4081;
+}
+
+
+.icons span {
+    margin-left: 20px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #555;
+    transition: color 0.3s ease;
+}
+
+.icons span:hover {
+    color: #ff4081;
+}
+
+/* --- HERO SECTION STYLES - Revamped --- */
+.hero {
+    /* Stylish Abstract Background */
+    background-color: #6a85b6; /* Fallback color */
+    background-image:
+        /* Layer 2: Subtle dark gradient from left for text contrast */
+        linear-gradient(to right, rgba(40, 45, 55, 0.75) 0%, rgba(40, 45, 55, 0) 65%),
+        /* Layer 1: Main abstract gradient background image */
+        url('hero-image.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    color: white;
+    text-align: left;
+    padding: 130px 50px 130px 70px; /* Adjust padding as needed */
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* Ensure hero content is distinct */
+.hero h1,
+.hero p,
+.hero button {
+    position: relative; /* Keep content layered correctly if needed */
+    z-index: 2; /* Ensure content is above background layers */
+    /* Refined text shadow for clarity on potentially complex background */
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.hero h1 {
+    font-size: 54px; /* Slightly larger */
+    margin-bottom: 15px;
+    font-weight: bold;
+    max-width: 680px; /* Adjust width constraint */
+    line-height: 1.2; /* Adjust line height */
+    letter-spacing: -1px; /* Add slight letter spacing for style */
+}
+
+.hero p {
+    font-size: 21px; /* Slightly smaller, better balance */
+    margin-bottom: 35px; /* More space before button */
+    max-width: 580px; /* Adjust width constraint */
+    line-height: 1.7;
+    opacity: 0.9; /* Slightly less stark white */
+}
+
+.hero button {
+    background: #ff4081; /* Keep brand color */
+    color: white;
+    border: none;
+    padding: 14px 30px; /* Slightly larger button */
+    font-size: 17px; /* Adjust font size */
+    font-weight: bold; /* Bolder text */
+    cursor: pointer;
+    border-radius: 50px; /* Pill shape for modern look */
+    transition: all 0.3s ease; /* Smooth all transitions */
+    box-shadow: 0 4px 15px rgba(255, 64, 129, 0.3); /* Add shadow related to button color */
+    position: relative;
+    z-index: 2;
+}
+
+.hero button:hover {
+    background: #f53d7a; /* Slightly different hover */
+    transform: translateY(-2px); /* Add lift effect */
+    box-shadow: 0 6px 20px rgba(255, 64, 129, 0.4);
+}
+/* --- END HERO SECTION STYLES --- */
+
+
+/* ... (Keep your existing featured-products, products, promo, etc. styles) ... */
+
+.featured-products {
+    text-align: center;
+    padding: 60px 20px;
+    background: #fff;
+}
+
+.featured-products h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.products {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.product {
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    width: 280px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.12);
+}
+
+
+.product img {
+    max-width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    background-color: #eee;
+}
+
+.product h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.product p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.product button {
+    background: #ff4081;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.product button:hover {
+    background: #e0306a;
+}
+
+
+.promo {
+    background: #ff4081;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+.promo h2 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.testimonials {
+    text-align: center;
+    padding: 60px 20px;
+    background: #f8f9fa;
+}
+
+.testimonials h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+
+.testimonial-slider {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    min-height: 100px;
+}
+
+.testimonial {
+    display: none;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.testimonial p {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 10px;
+}
+.testimonial p.author {
+    font-style: normal;
+    font-weight: bold;
+    color: #333;
+    margin-top: 15px;
+}
+
+
+.newsletter {
+    text-align: center;
+    padding: 60px 20px;
+    background: #fff;
+}
+
+.newsletter h2 {
+     font-size: 32px;
+    margin-bottom: 15px;
+    color: #333;
+}
+.newsletter p {
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.newsletter input {
+    padding: 12px 15px;
+    width: 300px;
+    max-width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.newsletter button {
+    background: #ff4081;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.newsletter button:hover {
+     background: #e0306a;
+}
+
+
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 25px 20px;
+    margin-top: 0;
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 15px;
+    }
+    nav ul {
+        margin-top: 10px;
+        justify-content: center;
+    }
+    .icons {
+        margin-top: 10px;
+    }
+     .hero {
+        text-align: center; /* Center text on smaller screens */
+        padding: 90px 20px; /* Adjust padding */
+        /* Adjust background gradient for centered text */
+        background-image:
+            linear-gradient(to bottom, rgba(40, 45, 55, 0.7) 0%, rgba(40, 45, 55, 0) 70%), /* Gradient from top */
+            url('https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1400&q=80');
+    }
+    .hero h1, .hero p {
+        max-width: 100%; /* Remove max-width constraints */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero h1 {
+        font-size: 40px; /* Adjust font size */
+        letter-spacing: -0.5px;
+    }
+    .hero p {
+        font-size: 18px;
+        opacity: 1; /* Make paragraph fully opaque */
+    }
+     .hero button {
+        padding: 12px 25px;
+        font-size: 16px;
+    }
+
+    .products {
+        flex-direction: column;
+        align-items: center;
+    }
+    .product {
+        width: 80%;
+        max-width: 320px;
+    }
+    .newsletter input {
+        width: 70%;
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+     .newsletter button {
+        width: 70%;
+        padding: 12px 15px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ====================////////////////========================//////////========= */
+
+
+.featured-products {
+    text-align: center;
+    padding: 60px 20px; /* Increased padding */
+    background: #fff; /* White background for this section */
+}
+
+.featured-products h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.products {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 30px; /* Increased gap */
+}
+
+.product {
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Slightly softer shadow */
+    border-radius: 8px; /* Rounded corners */
+    width: 280px; /* Fixed width for consistency */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.12);
+}
+
+
+.product img {
+    max-width: 100%;
+    height: 200px; /* Fixed height for images */
+    object-fit: cover; /* Ensure images cover the area well */
+    border-radius: 4px; /* Slight rounding */
+    margin-bottom: 15px;
+    background-color: #eee; /* Placeholder background */
+}
+
+.product h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.product p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.product button {
+    background: #ff4081;
+    color: white;
+    border: none;
+    padding: 10px 15px; /* Adjusted padding */
+    cursor: pointer;
+    width: 100%; /* Full width button */
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.product button:hover {
+    background: #e0306a;
+}
+
+
+.promo {
+    background: #ff4081;
+    color: white;
+    text-align: center;
+    padding: 30px 20px; /* Increased padding */
+}
+.promo h2 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.testimonials {
+    text-align: center;
+    padding: 60px 20px;
+    background: #f8f9fa; /* Light background */
+}
+
+.testimonials h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+
+.testimonial-slider {
+    /* Keep this simple as JS controls display */
+    max-width: 600px; /* Limit width */
+    margin: 0 auto;
+    position: relative;
+    min-height: 100px; /* Prevent collapsing */
+}
+
+.testimonial {
+    display: none; /* Initially hide testimonials - JS will show one */
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.testimonial p {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 10px;
+}
+.testimonial p.author {
+    font-style: normal;
+    font-weight: bold;
+    color: #333;
+    margin-top: 15px;
+}
+
+
+.newsletter {
+    text-align: center;
+    padding: 60px 20px;
+    background: #fff; /* White background */
+}
+
+.newsletter h2 {
+     font-size: 32px;
+    margin-bottom: 15px;
+    color: #333;
+}
+.newsletter p {
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.newsletter input {
+    padding: 12px 15px; /* Increased padding */
+    width: 300px; /* Wider input */
+    max-width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 5px; /* Space between input and button */
+}
+
+.newsletter button {
+    background: #ff4081;
+    color: white;
+    border: none;
+    padding: 12px 20px; /* Match input height */
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.newsletter button:hover {
+     background: #e0306a;
+}
+
+
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 25px 20px; /* Increased padding */
+    margin-top: 0; /* Remove any top margin */
+}
+
+/* Basic Responsiveness */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 15px;
+    }
+    nav ul {
+        margin-top: 10px;
+        justify-content: center;
+    }
+    .icons {
+        margin-top: 10px;
+    }
+    .hero h1 {
+        font-size: 36px;
+    }
+    .hero p {
+        font-size: 18px;
+    }
+    .products {
+        flex-direction: column;
+        align-items: center;
+    }
+    .product {
+        width: 80%;
+        max-width: 320px;
+    }
+    .newsletter input {
+        width: 70%;
+        margin-bottom: 10px;
+    }
+     .newsletter button {
+        width: auto;
+    }
+}
+</style>
+<body>
+
+    <header>
+        <div class="logo">MyStore</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Categories</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="icons">
+            
+             <!-- Example using Font Awesome (if included): -->
+            <span class="fas fa-user"></span>
+            <span class="fas fa-shopping-cart"></span>
+            <span class="fas fa-search"></span>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+             <!-- Make sure you have an image named 'hero-image.jpg' in the same folder or update the path in CSS -->
+            <h1>Welcome to Our Store</h1>
+            <p>Discover the latest trends in fashion and accessories.</p>
+            <button>Shop Now</button>
+        </section>
+
+        <section class="featured-products">
+            <h2>Featured Products</h2>
+            <div class="products">
+                <div class="product">
+                    <img src="placeholder.jpg" alt="Product 1"> <!-- Replace with actual product image -->
+                    <h3>Product Title 1</h3>
+                    <p>$19.99</p>
+                    <button>Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="placeholder.jpg" alt="Product 2"> <!-- Replace with actual product image -->
+                    <h3>Product Title 2</h3>
+                    <p>$29.99</p>
+                    <button>Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="placeholder.jpg" alt="Product 3"> <!-- Replace with actual product image -->
+                    <h3>Product Title 3</h3>
+                    <p>$39.99</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="promo">
+            <h2>Special Offer! Get 20% Off Your Next Purchase!</h2>
+            <p>Use code: PROMO20</p>
+        </section>
+
+        <section class="testimonials">
+            <h2>What Our Customers Say</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <p>"Amazing quality and fast shipping! Highly recommend."</p>
+                    <p class="author">- Jane Doe</p>
+                </div>
+                <div class="testimonial">
+                    <p>"Great customer service and beautiful products."</p>
+                    <p class="author">- John Smith</p>
+                </div>
+                <div class="testimonial">
+                    <p>"I love the unique styles available here. My new favorite store!"</p>
+                    <p class="author">- Alice Brown</p>
+                </div>
+                <!-- Add more testimonials as needed -->
+            </div>
+        </section>
+
+        <section class="newsletter">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Get updates on new arrivals and special offers.</p>
+            <input type="email" placeholder="Enter your email">
+            <button>Subscribe</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2023 MyStore. All rights reserved.</p>
+        <!-- Add social media links or other footer content here -->
+    </footer>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    // Handle Add to Cart Button Clicks
+    const cartButtons = document.querySelectorAll(".product button");
+    cartButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            // In a real application, you'd add logic here to update a cart object/state
+            alert("Product added to cart!");
+            // Example: Maybe change button text
+            // button.textContent = "Added!";
+            // button.disabled = true;
+        });
+    });
+
+    // Simple Testimonial Slider
+    let currentIndex = 0;
+    const testimonials = document.querySelectorAll(".testimonial-slider .testimonial");
+
+    // Ensure there are testimonials before trying to slide
+    if (testimonials.length > 0) {
+        function showTestimonial(index) {
+            testimonials.forEach((testimonial, i) => {
+                // Use visibility or opacity for smoother transitions if desired
+                testimonial.style.display = i === index ? "block" : "none";
+            });
+        }
+
+        function nextTestimonial() {
+            currentIndex = (currentIndex + 1) % testimonials.length;
+            showTestimonial(currentIndex);
+        }
+
+        setInterval(nextTestimonial, 4000); // Auto-slide every 4 seconds (adjust as needed)
+
+        // Show the first testimonial initially
+        showTestimonial(currentIndex);
+    }
+
+
+    // Newsletter Subscription
+    const subscribeButton = document.querySelector(".newsletter button");
+    const emailInput = document.querySelector(".newsletter input[type='email']"); // More specific selector
+
+    // Check if elements exist before adding listener
+    if (subscribeButton && emailInput) {
+        subscribeButton.addEventListener("click", () => {
+            const emailValue = emailInput.value.trim();
+            // Simple email validation (check for '@')
+            if (emailValue !== "" && emailValue.includes("@")) {
+                 // In a real app, send this email to a server
+                alert("Thank you for subscribing!");
+                emailInput.value = ""; // Clear input after subscription
+            } else {
+                alert("Please enter a valid email address.");
+            }
+        });
+    }
+});
+</script>
+    <!-- <script src="script.js"></script> -->
+</body>
+</html>
